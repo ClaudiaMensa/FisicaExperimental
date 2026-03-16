@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Física Experimental: Do Lúdico ao Científico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .sidebar-link.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+
+        .section-content {
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Mobile Menu Toggle -->
+    <button id="menuMobile" class="fixed top-4 right-4 z-50 p-2 bg-blue-600 text-white rounded-md lg:hidden">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="w-64 bg-slate-900 text-white flex-shrink-0 fixed h-full lg:static transition-transform -translate-x-full lg:translate-x-0 z-40">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold text-blue-400"><i class="fas fa-flask mr-2"></i>Física Lab</h1>
+                <p class="text-xs text-slate-400 mt-1">Jornada Experimental</p>
+            </div>
+            <nav class="mt-4 px-4 space-y-2">
+                <a href="#" onclick="showSection('intro')" class="sidebar-link active flex items-center p-3 rounded-lg hover:bg-slate-800 transition">
+                    <i class="fas fa-rocket w-6"></i> Introdução
+                </a>
+                <a href="#" onclick="showSection('ludico')" class="sidebar-link flex items-center p-3 rounded-lg hover:bg-slate-800 transition">
+                    <i class="fas fa-magic w-6"></i> Fase 1: Mágica ou Física?
+                </a>
+                <a href="#" onclick="showSection('exploracao')" class="sidebar-link flex items-center p-3 rounded-lg hover:bg-slate-800 transition">
+                    <i class="fas fa-microscope w-6"></i> Fase 2: Medir é Preciso
+                </a>
+                <a href="#" onclick="showSection('complexo')" class="sidebar-link flex items-center p-3 rounded-lg hover:bg-slate-800 transition">
+                    <i class="fas fa-atom w-6"></i> Fase 3: Rigor Científico
+                </a>
+                <a href="#" onclick="showSection('referencias')" class="sidebar-link flex items-center p-3 rounded-lg hover:bg-slate-800 transition">
+                    <i class="fas fa-book w-6"></i> Referências & Futuro
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 p-4 lg:p-12 overflow-y-auto">
+            
+            <!-- Introdução -->
+            <section id="intro" class="section-content active max-w-4xl mx-auto">
+                <div class="mb-10 text-center">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold uppercase tracking-wide">Bem-vindo(a)</span>
+                    <h2 class="text-4xl lg:text-5xl font-extrabold mt-4 text-slate-800 leading-tight">O que é Física Experimental?</h2>
+                    <p class="text-xl text-slate-600 mt-6">A física não está apenas nos livros. Ela está na ponta dos seus dedos, no movimento das águas e no brilho das estrelas. Vamos transformar sua curiosidade em conhecimento!</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white mb-4">
+                            <i class="fas fa-eye fa-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Observar</h3>
+                        <p class="text-slate-600">Olhar o mundo com atenção, percebendo padrões onde outros veem apenas o comum.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white mb-4">
+                            <i class="fas fa-vial fa-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Testar</h3>
+                        <p class="text-slate-600">Mudar as condições, repetir o processo e ver o que acontece. Isso é experimentar!</p>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <button onclick="showSection('ludico')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-blue-200">Começar Jornada <i class="fas fa-arrow-right ml-2"></i></button>
+                </div>
+            </section>
+
+            <!-- Fase 1: Lúdico -->
+            <section id="ludico" class="section-content max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-slate-800">Fase 1: Mágica ou Física? 🪄</h2>
+                    <p class="text-lg text-slate-600 mt-2">Para crianças e jovens curiosos: experimentos que parecem truques de ilusionismo.</p>
+                </div>
+
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl mb-10">
+                    <div class="bg-yellow-400 p-8 text-slate-900">
+                        <h3 class="text-2xl font-bold mb-2">O Desafio do Ovo Flutuante</h3>
+                        <p class="opacity-90">Por que algumas coisas afundam e outras não? Vamos descobrir brincando com a densidade.</p>
+                    </div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex flex-wrap gap-4">
+                            <span class="bg-slate-100 px-3 py-1 rounded-md text-sm font-mono font-bold text-slate-600">Materiais: 2 Copos, 2 Ovos, Água e Sal.</span>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold mr-4 flex-shrink-0">1</div>
+                                <p class="text-slate-700">Encha os dois copos com água. Em um deles, adicione 4 colheres de sopa de sal e misture bem.</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold mr-4 flex-shrink-0">2</div>
+                                <p class="text-slate-700">Coloque um ovo em cada copo com cuidado. O que aconteceu?</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 italic">
+                            "A água salgada é mais 'densa' que a água doce. É como se houvessem mais soldadinhos segurando o ovo para cima no copo com sal!"
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fase 2: Exploração (Intermediário) -->
+            <section id="exploracao" class="section-content max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-slate-800">Fase 2: Medir é Preciso 📏</h2>
+                    <p class="text-lg text-slate-600 mt-2">Para adolescentes: introduzindo o conceito de variáveis e gráficos.</p>
+                </div>
+
+                <div class="grid gap-8">
+                    <div class="bg-white p-8 rounded-3xl shadow-lg border-t-8 border-indigo-500">
+                        <h3 class="text-2xl font-bold text-indigo-900 mb-4">O Pêndulo Simples</h3>
+                        <p class="mb-6 text-slate-600">O que faz um relógio de pêndulo bater mais rápido ou mais devagar? Será o peso? Ou o comprimento do fio?</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h4 class="font-bold text-slate-800 mb-2">Sua Missão:</h4>
+                                <ul class="list-disc list-inside space-y-2 text-slate-700">
+                                    <li>Mesa, barbante e uma borracha.</li>
+                                    <li>Mude o tamanho do barbante (10cm, 20cm, 30cm).</li>
+                                    <li>Use o cronômetro do celular para medir 10 oscilações.</li>
+                                    <li>Divida o tempo por 10 para achar o <b>Período (T)</b>.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-dashed border-slate-300">
+                                <h4 class="font-bold text-center text-slate-500 text-sm mb-4">SIMULAÇÃO DE DADOS</h4>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-xs font-mono">
+                                        <span>Comprimento (L)</span>
+                                        <span>Período (T)</span>
+                                    </div>
+                                    <div class="w-full bg-blue-200 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-blue-600 h-full" style="width: 30%"></div>
+                                    </div>
+                                    <div class="w-full bg-blue-200 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-blue-600 h-full" style="width: 60%"></div>
+                                    </div>
+                                    <div class="w-full bg-blue-200 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-blue-600 h-full" style="width: 90%"></div>
+                                    </div>
+                                    <p class="text-center text-[10px] mt-2 text-slate-400">Quanto mais longo o fio, mais lento o balanço!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fase 3: Complexo (Avançado) -->
+            <section id="complexo" class="section-content max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-slate-800 text-red-600">Fase 3: O Rigor do Cientista 🧬</h2>
+                    <p class="text-lg text-slate-600 mt-2">Para jovens universitários ou entusiastas: incertezas, linearização e leis fundamentais.</p>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-2xl">
+                        <h3 class="text-2xl font-bold mb-4 text-red-400">Determinação da Aceleração da Gravidade (g)</h3>
+                        <p class="text-slate-300 leading-relaxed mb-6">
+                            Utilizando a teoria do Pêndulo Simples para pequenas oscilações ($\theta < 10^\circ$), temos que o período $T$ é dado por:
+                            <div class="bg-slate-800 p-4 rounded-lg my-4 text-center font-mono text-xl text-blue-300">
+                                $T = 2\pi \sqrt{\frac{L}{g}}$
+                            </div>
+                        </p>
+
+                        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                            <h4 class="font-bold mb-3 text-red-300"><i class="fas fa-exclamation-triangle mr-2"></i>Tratamento de Dados e Incertezas</h4>
+                            <p class="text-sm text-slate-400 mb-4">Em um experimento real, toda medida tem um erro associado. Como cientistas, precisamos calcular a propagação desses erros.</p>
+                            <ul class="text-sm space-y-3">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> <b>Linearização:</b> Transforme $T = f(L)$ em $T^2 = (\frac{4\pi^2}{g}) \cdot L$ (Equação da reta $y = ax + b$).</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> <b>Mínimos Quadrados:</b> Calcule o coeficiente angular para encontrar o valor de $g$ local.</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> <b>Incerteza:</b> $\sigma_g = g \sqrt{(\frac{2\sigma_T}{T})^2 + (\frac{\sigma_L}{L})^2}$.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                        <h3 class="text-xl font-bold mb-4">Relatório de Laboratório Padrão</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center text-xs font-bold uppercase tracking-widest text-slate-500">
+                            <div class="p-3 bg-slate-50 rounded">Objetivo</div>
+                            <div class="p-3 bg-slate-50 rounded">Fundamentação</div>
+                            <div class="p-3 bg-slate-50 rounded">Metodologia</div>
+                            <div class="p-3 bg-slate-50 rounded">Resultados</div>
+                            <div class="p-3 bg-slate-50 rounded">Análise de Erros</div>
+                            <div class="p-3 bg-slate-50 rounded">Conclusão</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Referências -->
+            <section id="referencias" class="section-content max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-slate-800">Referências & Futuro 📚</h2>
+                    <p class="text-lg text-slate-600 mt-2">Para quem quer mergulhar fundo na Física Experimental.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <h4 class="font-bold text-blue-600 mb-3 underline">Bibliografia Acadêmica</h4>
+                        <ul class="text-sm space-y-3 text-slate-700">
+                            <li>• <b>P.R. Bevington:</b> <i>Data Reduction and Error Analysis for the Physical Sciences.</i></li>
+                            <li>• <b>H.M. Nussenzveig:</b> <i>Curso de Física Básica - Volume 1.</i></li>
+                            <li>• <b>J.R. Taylor:</b> <i>An Introduction to Error Analysis.</i></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <h4 class="font-bold text-green-600 mb-3 underline">Plataformas Online</h4>
+                        <ul class="text-sm space-y-3 text-slate-700">
+                            <li>• <b>PhET Interactive Simulations:</b> (Univ. de Colorado)</li>
+                            <li>• <b>Khan Academy:</b> Física e Matemática.</li>
+                            <li>• <b>CBPF:</b> Centro Brasileiro de Pesquisas Físicas.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-12 bg-blue-600 text-white p-8 rounded-3xl text-center">
+                    <h3 class="text-2xl font-bold mb-4">Você completou a jornada!</h3>
+                    <p class="mb-6 opacity-90">A ciência é um caminho sem fim. Continue perguntando "Por quê?" todos os dias.</p>
+                    <button onclick="window.print()" class="bg-white text-blue-600 px-6 py-2 rounded-full font-bold hover:bg-blue-50 transition">Salvar Guia de Estudos</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Script para Navegação -->
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Update sidebar links
+            document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick').includes(sectionId)) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Close mobile menu
+            if (window.innerWidth < 1024) {
+                document.getElementById('sidebar').classList.add('-translate-x-full');
+            }
+            
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('menuMobile').addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // Simulação de MathJax básico para equações visíveis no HTML (opcional, aqui usei texto puro formatado)
+        // Em um ambiente real, você carregaria o script do MathJax.
+    </script>
+</body>
+</html>
